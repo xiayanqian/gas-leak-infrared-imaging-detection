@@ -7,21 +7,21 @@ using namespace cv;
 string	origin_name		= "原图像";
 string	aniso_name		= "各向异性扩散图像";
 string	equal_name		= "直方图均衡化后的图像";
-string	integral_name	= "积分图像";
-string	k_means_name	= "kmeans分割图像";
+string	integral_name		= "积分图像";
+string	k_means_name		= "kmeans分割图像";
 string	result_name		= "结果图像";
-int		frame_num		= 0;	//输入帧的数量
+int	frame_num		= 0;	//输入帧的数量
 
 //********各向异性扩散滤波参数********
 Mat AnisoDiff(const Mat& src, int iter, int k, float lambda);
 float   lambda			= 0.23;	//扩散速度控制，最大取0.25
 int     kappa			= 10;	//热传导系数，取值范围待经验确认
-int		iteration		= 1;	//迭代次数
+int	iteration		= 1;	//迭代次数
 
 //********帧间差分及积分参数********
 Mat FrameDiff(const deque<Mat>& src, int difference_interval, int integral_interval);
 Mat ThreeFrameDiff(const deque<Mat>& src, int difference_interval, int integral_interval);
-int		difference_interval = 2;	//差分帧间间隔
+int		difference_interval 	= 2;	//差分帧间间隔
 int		integral_interval	= 5;	//积分帧间间隔
 int		min_diff_threshold	= 60;
 
